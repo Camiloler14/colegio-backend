@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 
 // Crear nueva falta
 router.post('/', async (req, res) => {
-  const { estudiante_id, fecha, descripcion } = req.body;
+  const { id_estudiante, fecha, descripcion } = req.body;
   try {
     await pool.query(
       'INSERT INTO faltas (estudiante_id, fecha, descripcion) VALUES ($1, $2, $3)',
