@@ -22,9 +22,9 @@ router.post('/', async (req, res) => {
   const { id_estudiante, fecha, descripcion } = req.body;
   try {
     await pool.query(
-      'INSERT INTO faltas (estudiante_id, fecha, descripcion) VALUES ($1, $2, $3)',
-      [estudiante_id, fecha, descripcion]
-    );
+  'INSERT INTO faltas (id_estudiante, fecha, descripcion) VALUES ($1, $2, $3)',
+  [id_estudiante, fecha, descripcion]
+);
     res.json({ message: 'Falta registrada correctamente' });
   } catch (err) {
     res.status(500).json({ message: 'Error al registrar la falta' });
