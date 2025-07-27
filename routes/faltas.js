@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
 );
     res.json({ message: 'Falta registrada correctamente' });
   } catch (err) {
+    console.error('Error en POST /faltas:', err); // ✅ Esto es clave
     res.status(500).json({ message: 'Error al registrar la falta' });
   }
 });
