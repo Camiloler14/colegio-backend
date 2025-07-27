@@ -6,11 +6,11 @@ const pool = require('../db');
 router.get('/', async (req, res) => {
   try {
     const result = await pool.query(`
-      SELECT f.id, f.estudiante_id, f.fecha, f.descripcion, e.nombre AS nombre_estudiante, e.grado 
-      FROM faltas f
-      JOIN estudiantes e ON f.estudiante_id = e.id
-      ORDER BY f.fecha, e.nombre
-    `);
+  SELECT f.id, f.id_estudiante, f.fecha, f.descripcion, e.nombre AS nombre_estudiante, e.grado 
+  FROM faltas f
+  JOIN estudiantes e ON f.id_estudiante = e.id
+  ORDER BY f.fecha, e.nombre
+`);
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ message: 'Error al obtener faltas' });
